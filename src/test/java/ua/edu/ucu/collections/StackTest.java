@@ -42,7 +42,7 @@ public class StackTest {
 
     //testing pop()
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = EmptyStackException.class)
     public void testEmptyStackPop() {
         Stack s = new Stack();
         s.pop();

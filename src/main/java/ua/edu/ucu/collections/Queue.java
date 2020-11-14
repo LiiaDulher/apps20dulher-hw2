@@ -10,11 +10,7 @@ public class Queue {
     }
 
     public Object peek() {
-        try {
-            return queue.getFirst();
-        } catch (IndexOutOfBoundsException e) {
-            throw new NullPointerException();
-        }
+        return queue.getFirst();
     }
 
     public Object dequeue() {

@@ -15,7 +15,7 @@ public class Stack {
     public Object peek(){
         try {
             return stack.getLast();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NullPointerException e) {
             throw new EmptyStackException();
         }
     }
