@@ -113,7 +113,7 @@ public final class ImmutableArrayList implements ImmutableList{
     @Override
     public String toString() {
         String stringRepresentation = "";
-        for (int i = 0; i < size(); i++){
+        for (int i = 0; i < size(); i++) {
             stringRepresentation += listElements[i] + " ";
         }
         stringRepresentation += "\n";

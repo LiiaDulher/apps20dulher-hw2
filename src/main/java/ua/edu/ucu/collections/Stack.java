@@ -8,11 +8,11 @@ public class Stack {
 
     private ImmutableLinkedList stack;
 
-    public Stack(){
+    public Stack() {
         stack = new ImmutableLinkedList();
     }
 
-    public Object peek(){
+    public Object peek() {
         try {
             return stack.getLast();
         } catch (NullPointerException e) {
@@ -20,13 +20,13 @@ public class Stack {
         }
     }
 
-    public Object pop(){
+    public Object pop() {
         Object element = peek();
         stack = stack.removeLast();
         return element;
     }
 
-    public void push(Object e){
+    public void push(Object e) {
        stack = stack.addLast(e);
     }
 

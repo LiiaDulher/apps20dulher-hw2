@@ -5,7 +5,7 @@ import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 public class Queue {
     private ImmutableLinkedList queue;
 
-    public Queue(){
+    public Queue() {
         queue = new ImmutableLinkedList();
     }
 
@@ -19,7 +19,7 @@ public class Queue {
         return element;
     }
 
-    public void enqueue(Object e){
+    public void enqueue(Object e) {
         queue = queue.addLast(e);
     }
 

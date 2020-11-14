@@ -5,13 +5,13 @@ public final class ImmutableLinkedList implements ImmutableList{
     private final Node first;
     private final int listLength;
 
-    public ImmutableLinkedList(){
+    public ImmutableLinkedList() {
         first = null;
         listLength = 0;
     }
 
-    private ImmutableLinkedList(Node base, int size){
-        if (base == null){
+    private ImmutableLinkedList(Node base, int size) {
+        if (base == null) {
             first = null;
         } else {
             first = base.clone();
@@ -19,7 +19,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         listLength = size;
     }
 
-    public ImmutableLinkedList(Object[] elements){
+    public ImmutableLinkedList(Object[] elements) {
         if (elements.length == 0) {
             first = null;
             listLength = 0;
@@ -56,24 +56,24 @@ public final class ImmutableLinkedList implements ImmutableList{
         if (index < 0 || index > size()) {
             throw new IndexOutOfBoundsException();
         }
-        if (isEmpty()){
+        if (isEmpty()) {
             return new ImmutableLinkedList(c);
         }
-        if (index == 0){
+        if (index == 0) {
             return new ImmutableLinkedList(c).addAll(toArray());
         }
         Node newNode = first.clone();
         Node curNode = newNode;
-        for (int i = 0; i < index - 1; i++){
+        for (int i = 0; i < index - 1; i++) {
             curNode = curNode.getNext();
         }
         Node indexNode = curNode.getNext();
-        for (int i = 0; i < c.length; i++){
+        for (int i = 0; i < c.length; i++) {
             curNode.setNext(new Node(c[i]));
             curNode = curNode.getNext();
         }
         curNode.setNext(indexNode);
-        return new ImmutableLinkedList(newNode, listLength + c.length);
+        return new ImmutableLinkedList(newNode, size() + c.length);
     }
 
     @Override
@@ -82,7 +82,7 @@ public final class ImmutableLinkedList implements ImmutableList{
             throw new IndexOutOfBoundsException();
         }
         Node curNode = first;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             curNode = curNode.getNext();
         }
         return curNode.getValue();
@@ -103,7 +103,7 @@ public final class ImmutableLinkedList implements ImmutableList{
             }
             curNode.setNext(curNode.getNext().getNext());
         }
-        return new ImmutableLinkedList(newNode, listLength - 1);
+        return new ImmutableLinkedList(newNode, size() - 1);
     }
 
     @Override
@@ -113,7 +113,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         }
         Node newNode = first.clone();
         Node curNode = newNode;
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             curNode = curNode.getNext();
         }
         curNode.setValue(e);
@@ -124,8 +124,8 @@ public final class ImmutableLinkedList implements ImmutableList{
     @Override
     public int indexOf(Object e) {
         Node curNode = first;
-        for (int i = 0; i < listLength; i++){
-            if (e.equals(curNode.getValue())){
+        for (int i = 0; i < listLength; i++) {
+            if (e.equals(curNode.getValue())) {
                 return i;
             }
         }
@@ -151,7 +151,7 @@ public final class ImmutableLinkedList implements ImmutableList{
     public Object[] toArray() {
         Object[] linkedListArray = new Object[listLength];
         Node curNode = first;
-        for (int i = 0; i < listLength; i++){
+        for (int i = 0; i < listLength; i++) {
             linkedListArray[i] = curNode.getValue();
             curNode = curNode.getNext();
         }
@@ -162,7 +162,7 @@ public final class ImmutableLinkedList implements ImmutableList{
     public String toString() {
         String stringRepresentation = "";
         Object[] arrayList = toArray();
-        for (int i = 0; i < size(); i++){
+        for (int i = 0; i < size(); i++) {
             stringRepresentation += arrayList[i] + " ";
         }
         stringRepresentation += "\n";
@@ -177,7 +177,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         return add(e);
     }
 
-    public Object getFirst(){
+    public Object getFirst() {
         try {
             return get(0);
         } catch (IndexOutOfBoundsException e) {
