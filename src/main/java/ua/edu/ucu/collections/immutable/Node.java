@@ -2,7 +2,7 @@ package ua.edu.ucu.collections.immutable;
 
 public class Node {
     private Object value;
-    private Node next=null;
+    private Node next = null;
 
     public Node(Object e) {
         value = e;
@@ -24,11 +24,11 @@ public class Node {
         return next;
     }
 
-    public Node clone(){
+    public Node clone() {
         Node startNode = new Node(value);
         Node curNode = this;
         Node newNode = startNode;
-        while (curNode.next != null){
+        while (curNode.next != null) {
             curNode = curNode.getNext();
             newNode.setNext(new Node(curNode.getValue()));
             newNode = newNode.getNext();
