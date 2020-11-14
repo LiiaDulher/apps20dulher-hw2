@@ -1,6 +1,6 @@
 package ua.edu.ucu.collections.immutable;
 
-public final class ImmutableLinkedList implements ImmutableList{
+public final class ImmutableLinkedList implements ImmutableList {
 
     private final Node first;
     private final int listLength;

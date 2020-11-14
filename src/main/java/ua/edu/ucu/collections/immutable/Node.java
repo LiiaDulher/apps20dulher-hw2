@@ -8,12 +8,12 @@ public class Node {
         value = e;
     }
 
-    public void setValue(Object value) {
-        this.value = value;
+    public void setValue(Object e) {
+        value = e;
     }
 
-    public void setNext(Node next) {
-        this.next = next;
+    public void setNext(Node newNext) {
+        next = newNext;
     }
 
     public Object getValue() {
