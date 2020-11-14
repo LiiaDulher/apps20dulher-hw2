@@ -120,7 +120,6 @@ public final class ImmutableLinkedList implements ImmutableList{
         return new ImmutableLinkedList(newNode, size());
     }
 
-    // TODO REWRITE
     @Override
     public int indexOf(Object e) {
         Node curNode = first;
@@ -128,6 +127,7 @@ public final class ImmutableLinkedList implements ImmutableList{
             if (e.equals(curNode.getValue())) {
                 return i;
             }
+            curNode = curNode.getNext();
         }
         return -1;
     }

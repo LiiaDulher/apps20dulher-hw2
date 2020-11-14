@@ -294,9 +294,8 @@ public class ImmutableLinkedListTest {
         assertArrayEquals(expResult, actualResult);
     }
 
-    // TODO: testing indexOf()
+    // testing indexOf()
 
-    @Ignore
     @Test
     public void testNoElementIndexOf() {
         String[] s1 = {"5", "7"};
@@ -308,7 +307,6 @@ public class ImmutableLinkedListTest {
         assertEquals(expResult, actualResult);
     }
 
-    @Ignore
     @Test
     public void testIndexOf() {
         String[] s1 = {"5", "7", "10", "12"};
@@ -319,7 +317,6 @@ public class ImmutableLinkedListTest {
         assertEquals(expResult, actualResult);
     }
 
-    @Ignore
     @Test
     public void testSameIndexOf() {
         String[] s1 = {"5", "7", "7", "12"};

@@ -79,7 +79,6 @@ public final class ImmutableArrayList implements ImmutableList{
         return new ImmutableArrayList(elements);
     }
 
-    // TODO: REWRITE
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < size(); i++) {
