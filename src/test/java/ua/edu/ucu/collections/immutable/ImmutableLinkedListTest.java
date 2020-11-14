@@ -99,7 +99,8 @@ public class ImmutableLinkedListTest {
 
     @Test
     public void testImmutableAddAll() {
-        ImmutableLinkedList arr = new ImmutableLinkedList();
+        String[] s1 = {};
+        ImmutableLinkedList arr = new ImmutableLinkedList(s1);
         String[] s = {"7", "10"};
         ImmutableLinkedList arr1 = arr.addAll(s);
         assertNotSame(arr, arr1);
@@ -265,10 +266,17 @@ public class ImmutableLinkedListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testIndexOutOfRangeSet() {
+    public void testBigIndexOutOfRangeSet() {
         String[] s = {"7", "10"};
         ImmutableLinkedList arr = new ImmutableLinkedList(s);
-        ImmutableLinkedList arr1 = arr.set(2, "18");
+        arr.set(2, "18");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSmallIndexOutOfRangeSet() {
+        String[] s = {"7", "10"};
+        ImmutableLinkedList arr = new ImmutableLinkedList(s);
+        arr.set(-1, "18");
     }
 
     @Test
