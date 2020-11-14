@@ -153,10 +153,17 @@ public class ImmutableArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testIndexOutOfRangeIndexAddAll() {
+    public void testBigIndexOutOfRangeIndexAddAll() {
         ImmutableArrayList arr = new ImmutableArrayList();
         String[] s = {"7", "10"};
         ImmutableArrayList arr1 = arr.addAll(12, s);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSmallIndexOutOfRangeIndexAddAll() {
+        ImmutableArrayList arr = new ImmutableArrayList();
+        String[] s = {"7", "10"};
+        ImmutableArrayList arr1 = arr.addAll(-1, s);
     }
 
     @Test
@@ -187,10 +194,17 @@ public class ImmutableArrayListTest {
     // testing get()
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testIndexOutOfRangeGet() {
+    public void testBigIndexOutOfRangeGet() {
         String[] s = {"7", "10"};
         ImmutableArrayList arr = new ImmutableArrayList(s);
-        Object s1 = arr.get(12);
+        arr.get(12);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSmallIndexOutOfRangeGet() {
+        String[] s = {"7", "10"};
+        ImmutableArrayList arr = new ImmutableArrayList(s);
+        arr.get(-2);
     }
 
     @Test
@@ -225,10 +239,17 @@ public class ImmutableArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testIndexOutOfRangeRemove() {
+    public void testBigIndexOutOfRangeRemove() {
         String[] s = {"7", "10"};
         ImmutableArrayList arr = new ImmutableArrayList(s);
-        ImmutableArrayList arr1 = arr.remove(2);
+        arr.remove(2);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSmallIndexOutOfRangeRemove() {
+        String[] s = {"7", "10"};
+        ImmutableArrayList arr = new ImmutableArrayList(s);
+        arr.remove(-2);
     }
 
     @Test
@@ -265,10 +286,17 @@ public class ImmutableArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testIndexOutOfRangeSet() {
+    public void testBigIndexOutOfRangeSet() {
         String[] s = {"7", "10"};
         ImmutableArrayList arr = new ImmutableArrayList(s);
-        ImmutableArrayList arr1 = arr.set(2, "18");
+        arr.set(2, "18");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSmallIndexOutOfRangeSet() {
+        String[] s = {"7", "10"};
+        ImmutableArrayList arr = new ImmutableArrayList(s);
+        arr.set(-12, "18");
     }
 
     @Test

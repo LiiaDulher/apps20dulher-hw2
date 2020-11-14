@@ -154,10 +154,17 @@ public class ImmutableLinkedListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testIndexOutOfRangeIndexAddAll() {
+    public void testBigIndexOutOfRangeIndexAddAll() {
         ImmutableLinkedList arr = new ImmutableLinkedList();
         String[] s = {"7", "10"};
         ImmutableLinkedList arr1 = arr.addAll(12, s);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSmallIndexOutOfRangeIndexAddAll() {
+        ImmutableLinkedList arr = new ImmutableLinkedList();
+        String[] s = {"7", "10"};
+        ImmutableLinkedList arr1 = arr.addAll(-1, s);
     }
 
     @Test
