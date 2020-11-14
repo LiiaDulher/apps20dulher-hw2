@@ -14,7 +14,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         if (base == null) {
             first = null;
         } else {
-            first = base.clone();
+            first = base.copy();
         }
         listLength = size;
     }
@@ -62,7 +62,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         if (index == 0) {
             return new ImmutableLinkedList(c).addAll(toArray());
         }
-        Node newNode = first.clone();
+        Node newNode = first.copy();
         Node curNode = newNode;
         for (int i = 0; i < index - 1; i++) {
             curNode = curNode.getNext();
@@ -93,7 +93,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         if (index < 0 || index > size() - 1) {
             throw new IndexOutOfBoundsException();
         }
-        Node newNode = first.clone();
+        Node newNode = first.copy();
         if (index == 0) {
             newNode = newNode.getNext();
         } else {
@@ -111,7 +111,7 @@ public final class ImmutableLinkedList implements ImmutableList{
         if (index < 0 || index > size() - 1) {
             throw new IndexOutOfBoundsException();
         }
-        Node newNode = first.clone();
+        Node newNode = first.copy();
         Node curNode = newNode;
         for (int i = 0; i < index; i++) {
             curNode = curNode.getNext();
@@ -160,13 +160,14 @@ public final class ImmutableLinkedList implements ImmutableList{
 
     @Override
     public String toString() {
-        String stringRepresentation = "";
+        StringBuffer bf = new StringBuffer();
         Object[] arrayList = toArray();
         for (int i = 0; i < size(); i++) {
-            stringRepresentation += arrayList[i] + " ";
+            bf.append(arrayList[i]);
+            bf.append(" ");
         }
-        stringRepresentation += "\n";
-        return stringRepresentation;
+        bf.append("\n");
+        return bf.toString();
     }
 
     public ImmutableLinkedList addFirst(Object e) {

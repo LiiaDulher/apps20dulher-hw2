@@ -24,7 +24,7 @@ public class Node {
         return next;
     }
 
-    public Node clone() {
+    public Node copy() {
         Node startNode = new Node(value);
         Node curNode = this;
         Node newNode = startNode;

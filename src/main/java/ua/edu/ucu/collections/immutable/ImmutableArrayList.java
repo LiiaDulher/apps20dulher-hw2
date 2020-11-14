@@ -111,11 +111,12 @@ public final class ImmutableArrayList implements ImmutableList{
 
     @Override
     public String toString() {
-        String stringRepresentation = "";
+        StringBuffer bf = new StringBuffer();
         for (int i = 0; i < size(); i++) {
-            stringRepresentation += listElements[i] + " ";
+            bf.append(listElements[i]);
+            bf.append(" ");
         }
-        stringRepresentation += "\n";
-        return stringRepresentation;
+        bf.append("\n");
+        return bf.toString();
     }
 }
